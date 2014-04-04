@@ -1,9 +1,11 @@
-package com.wicomb.TeaStealer;
+package com.wicomb.scripts.os.TeaStealer.Tasks;
 
 import org.powerbot.script.Condition;
 import org.powerbot.script.Random;
 import org.powerbot.script.rt4.ClientContext;
 import org.powerbot.script.rt4.GameObject;
+
+import com.wicomb.scripts.os.TeaStealer.Helpers;
 
 public class RandomTask extends Task {
 

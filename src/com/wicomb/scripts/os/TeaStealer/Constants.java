@@ -1,4 +1,4 @@
-package com.wicomb.TeaStealer;
+package com.wicomb.scripts.os.TeaStealer;
 
 import org.powerbot.script.Tile;
 
@@ -9,7 +9,7 @@ import org.powerbot.script.Tile;
  *  Everything in here is static, and if I could make the class static, believe me I would.
  */
 public final class Constants {
-	static final int TEA_ITEM = 1979;
-	static final int TEASTALL = 635;
-	static final Tile bankTile = new Tile(3253, 3420, 0);
+	public static final int TEA_ITEM = 1979;
+	public static final int TEASTALL = 635;
+	public static final Tile bankTile = new Tile(3253, 3420, 0);
 }

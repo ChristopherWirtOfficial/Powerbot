@@ -1,4 +1,4 @@
-package com.wicomb.TeaStealer;
+package com.wicomb.scripts.os.TeaStealer;
 
 import org.powerbot.script.Random;
 import org.powerbot.script.rt4.ClientContext;

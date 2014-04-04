@@ -1,9 +1,12 @@
-package com.wicomb.TeaStealer;
+package com.wicomb.scripts.os.TeaStealer.Tasks;
 
 import org.powerbot.script.Calculations;
 import org.powerbot.script.Random;
 import org.powerbot.script.rt4.ClientContext;
 import org.powerbot.script.rt4.Item;
+
+import com.wicomb.scripts.os.TeaStealer.Constants;
+import com.wicomb.scripts.os.TeaStealer.Helpers;
 public class BankTask extends Task {
 
 	public BankTask(ClientContext ctx) {

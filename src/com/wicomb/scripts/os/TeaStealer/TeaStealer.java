@@ -1,4 +1,4 @@
-package com.wicomb.TeaStealer;
+package com.wicomb.scripts.os.TeaStealer;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -9,6 +9,12 @@ import org.powerbot.script.PaintListener;
 import org.powerbot.script.PollingScript;
 import org.powerbot.script.Script.Manifest;
 import org.powerbot.script.rt6.Skills;
+
+import com.wicomb.scripts.os.TeaStealer.Tasks.BusyTask;
+import com.wicomb.scripts.os.TeaStealer.Tasks.DropTask;
+import com.wicomb.scripts.os.TeaStealer.Tasks.RandomTask;
+import com.wicomb.scripts.os.TeaStealer.Tasks.StealTask;
+import com.wicomb.scripts.os.TeaStealer.Tasks.Task;
 
 
 @Manifest(name = "Wicomb's Tea Stealer", description = "Steals Tea and Drops/banks it",properties = "topic=90210;client=4;")

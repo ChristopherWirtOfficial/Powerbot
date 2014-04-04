@@ -1,4 +1,4 @@
-package com.wicomb.TeaStealer;
+package com.wicomb.scripts.os.TeaStealer.Tasks;
 
 import org.powerbot.script.rt4.ClientAccessor;
 import org.powerbot.script.rt4.ClientContext;

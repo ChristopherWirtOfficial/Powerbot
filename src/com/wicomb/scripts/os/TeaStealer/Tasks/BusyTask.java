@@ -1,4 +1,4 @@
-package com.wicomb.TeaStealer;
+package com.wicomb.scripts.os.TeaStealer.Tasks;
 
 import org.powerbot.script.Condition;
 import org.powerbot.script.Random;
