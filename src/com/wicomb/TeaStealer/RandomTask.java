@@ -15,12 +15,13 @@ public class RandomTask extends Task {
 
 	@Override
 	public boolean activate() {
-		return Helpers.chance(5);
+		return Helpers.chance(1);
 	}
 
 	@Override
 	public void execute() {
 		// Literally just start looking at random shit
+		System.out.println("Randoming");
 		GameObject o = ctx.objects.select().shuffle().poll();
 		ctx.camera.turnTo(o); 
 		Condition.sleep(Random.nextInt(200,500));

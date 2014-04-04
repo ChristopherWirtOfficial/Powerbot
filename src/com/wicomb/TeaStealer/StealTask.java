@@ -16,14 +16,19 @@ public class StealTask extends Task {
 	
 	@Override
 	public boolean activate() {
-		return !ctx.objects.select().id(Constants.TEASTALL).isEmpty();
+		return !ctx.objects.select().id(Constants.TEASTALL).isEmpty() && !Helpers.isFull(ctx);
 	}
 	
 	@Override
 	public void execute() {
+		long start = System.currentTimeMillis();
+		System.out.println("Steal");
 		GameObject stall = ctx.objects.poll();
 		Condition.sleep(Random.getDelay());
 		if(stall.inViewport()) {
+			if(Helpers.chance(20)) {
+				ctx.camera.turnTo(stall);
+			}
 			stall.hover();
 			stall.interact("Steal-from");
 			Condition.sleep(Random.nextInt(1500, 2000));

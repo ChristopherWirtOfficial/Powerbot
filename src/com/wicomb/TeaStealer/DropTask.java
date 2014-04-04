@@ -14,19 +14,15 @@ public class DropTask extends Task {
 
 	@Override
 	public boolean activate() {
-		return ctx.inventory.select().count() == 28;
+		return Helpers.isFull(ctx);
 	}
 
 	@Override
 	public void execute() {
-		
+		System.out.println("Drop");
 		for(Item i : ctx.inventory.select().id(Constants.TEA_ITEM)) {
-			// Put there in case of misclicks to emulate human behavior of "FUCK, didn't drop it, better try again"
-			while(ctx.inventory.contains(i)) {
-				Condition.sleep(Random.getDelay());
 				i.interact("Drop");
-			}
+				Condition.sleep(Random.getDelay());
 		}
 	}
-
 }
