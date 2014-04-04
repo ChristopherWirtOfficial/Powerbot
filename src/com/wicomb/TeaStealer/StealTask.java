@@ -11,6 +11,7 @@ public class StealTask extends Task {
 	public StealTask(ClientContext ctx) {
 		super(ctx);
 		// TODO Auto-generated constructor stub
+		override = false;
 	}
 	
 	@Override

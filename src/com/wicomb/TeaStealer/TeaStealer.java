@@ -12,9 +12,11 @@ import org.powerbot.script.Script.Manifest;
 public class TeaStealer extends PollingScript<org.powerbot.script.rt4.ClientContext> implements PaintListener{
 	
 	ArrayList<Task> tasks;
+	Task busyTask = null; // This is used in cases like walking where I literally don't want anything to be done
 	@Override
 	public void start() {
 		tasks = new ArrayList<Task>();
+		tasks.add(new BusyTask(ctx));
 		tasks.add(new DropTask(ctx));
 		tasks.add(new StealTask(ctx));
 		System.out.println("Script started");
@@ -22,9 +24,16 @@ public class TeaStealer extends PollingScript<org.powerbot.script.rt4.ClientCont
 	
 	@Override
 	public void poll() {
-		for(Task t : tasks) {
-			if(t.activate()) {
-				t.execute();
+		if(busyTask.busy == false) {
+			busyTask = null;
+		} else {
+			for(Task t : tasks) {
+				
+				if(this.busyTask == null && t.busy) this.busyTask = t;
+				
+				if(t.activate() && (this.busyTask == null || t.override || this.busyTask == t)) {
+					t.execute();
+				}
 			}
 		}
 	}

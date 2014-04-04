@@ -19,10 +19,13 @@ public class DropTask extends Task {
 
 	@Override
 	public void execute() {
-		while(!ctx.inventory.select().id(Constants.TEA_ITEM).isEmpty())
+		
 		for(Item i : ctx.inventory.select().id(Constants.TEA_ITEM)) {
-			Condition.sleep(Random.getDelay());
-			i.interact("Drop");
+			// Put there in case of misclicks to emulate human behavior of "FUCK, didn't drop it, better try again"
+			while(ctx.inventory.contains(i)) {
+				Condition.sleep(Random.getDelay());
+				i.interact("Drop");
+			}
 		}
 	}
 
