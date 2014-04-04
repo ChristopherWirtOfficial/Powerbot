@@ -35,7 +35,7 @@ public class TeaStealer extends PollingScript<org.powerbot.script.rt4.ClientCont
 		startLevel = ctx.skills.levels()[Skills.THIEVING];
 		startExp = ctx.skills.experiences()[Skills.THIEVING];
 		tasks = new ArrayList<Task>();
-		tasks.add(new BusyTask(ctx));
+		//tasks.add(new BusyTask(ctx));
 		tasks.add(new RandomTask(ctx));
 		tasks.add(new DropTask(ctx));
 		tasks.add(new StealTask(ctx));
