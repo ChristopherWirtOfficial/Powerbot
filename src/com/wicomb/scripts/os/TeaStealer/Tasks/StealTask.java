@@ -1,5 +1,7 @@
 package com.wicomb.scripts.os.TeaStealer.Tasks;
 
+import java.util.concurrent.Callable;
+
 import org.powerbot.script.Condition;
 import org.powerbot.script.Random;
 import org.powerbot.script.rt4.ClientContext;
@@ -30,9 +32,18 @@ public class StealTask extends Task {
 			if(Helpers.chance(20)) {
 				ctx.camera.turnTo(stall);
 			}
-			stall.hover();
-			stall.interact("Steal-from");
-			Condition.sleep(Random.nextInt(1500, 2000));
+			if(stall.hover()) 
+				if(stall.interact("Steal-from"))
+					Condition.wait(new Callable<Boolean>() {
+
+						@Override
+						public Boolean call() throws Exception {
+							if(!ctx.objects.select().id(Constants.TEASTALL_EMPTY).isEmpty()) {
+								return true;
+							}
+							return false;
+						}
+					});
 		} else {
 			ctx.camera.turnTo(stall);
 			if(stall.inViewport()) {

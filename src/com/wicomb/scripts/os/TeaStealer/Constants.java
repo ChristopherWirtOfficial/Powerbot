@@ -12,4 +12,5 @@ public final class Constants {
 	public static final int TEA_ITEM = 1979;
 	public static final int TEASTALL = 635;
 	public static final Tile bankTile = new Tile(3253, 3420, 0);
+	public static final int TEASTALL_EMPTY = 634;
 }
