@@ -20,18 +20,16 @@ import com.wicomb.scripts.os.TeaStealer.Tasks.Task;
 @Manifest(name = "Wicomb's Tea Stealer", description = "Steals Tea and Drops/banks it",properties = "topic=90210;client=4;")
 public class TeaStealer extends PollingScript<org.powerbot.script.rt4.ClientContext> implements PaintListener{
 	
-	long startTime = 0;
-	int startLevel = 0;
-	int startExp = 0;
-	ArrayList<Task> tasks;
-	Task busyTask = null; // This is used in cases like walking where I literally don't want anything to be done
+	private int startLevel = 0;
+	private int startExp = 0;
+	private ArrayList<Task> tasks;
+	private Task busyTask = null; // This is used in cases like walking where I literally don't want anything to be done
 	@Override
 	public void start() {
 		if(!ctx.game.loggedIn()) {
 			System.out.println("Please start the script while logged in");
 			ctx.controller.stop();
 		}
-		startTime = System.currentTimeMillis();
 		startLevel = ctx.skills.levels()[Skills.THIEVING];
 		startExp = ctx.skills.experiences()[Skills.THIEVING];
 		tasks = new ArrayList<Task>();
