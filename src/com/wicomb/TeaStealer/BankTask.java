@@ -26,7 +26,6 @@ public class BankTask extends Task {
 		System.out.println(ctx.players.local().tile().distanceTo(Constants.bankTile));
 		if(ctx.players.local().tile().distanceTo(Constants.bankTile) < 4) {
 			System.out.println("Banking");
-			bankStall.interact("Bank");
 		} else {
 			System.out.println("Moving!");
 			ctx.movement.step(Constants.bankTile.derive(Random.nextInt(0, 4),0));
