@@ -26,6 +26,7 @@ public class StealTask extends Task {
 		if(stall.inViewport()) {
 			stall.hover();
 			stall.interact("Steal-from");
+			Condition.sleep(Random.nextInt(1500, 2000));
 		} else {
 			ctx.camera.turnTo(stall);
 			if(stall.inViewport()) {

@@ -17,14 +17,15 @@ public class TeaStealer extends PollingScript<org.powerbot.script.rt4.ClientCont
 	public void start() {
 		tasks = new ArrayList<Task>();
 		tasks.add(new BusyTask(ctx));
-		tasks.add(new DropTask(ctx));
+		tasks.add(new RandomTask(ctx));
+		tasks.add(new BankTask(ctx));
 		tasks.add(new StealTask(ctx));
 		System.out.println("Script started");
 	}
 	
 	@Override
 	public void poll() {
-		if(busyTask.busy == false) {
+		if(busyTask != null && busyTask.busy == false) {
 			busyTask = null;
 		} else {
 			for(Task t : tasks) {
